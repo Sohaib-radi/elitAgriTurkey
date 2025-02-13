@@ -13,7 +13,7 @@ DATABASES = {
         'NAME': 'elitagri',           
         'USER': 'adminDb',            
         'PASSWORD': 'iW}B$i4vBy{BL["}',   
-        'HOST': '	63.250.41.35',           
+        'HOST': '63.250.41.35',           
         'PORT': '5432',               
     }
 }
