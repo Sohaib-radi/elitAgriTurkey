@@ -4,7 +4,7 @@ from .base import *
 DEBUG = True
 
 # Allow all hosts during development
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','63.250.41.35']
 
 # Database configuration for development
 DATABASES = {

@@ -5,8 +5,7 @@ from .base import *
 DEBUG = False
 
 # Allowed hosts for production
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','63.250.41.35']
 # Database configuration for production
 DATABASES = {
     'default': {

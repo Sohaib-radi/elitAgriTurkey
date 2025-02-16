@@ -5,7 +5,7 @@ from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 DJANGO_SETTINGS_MODULE = config('DJANGO_SETTINGS_MODULE')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = environ.get("SECRET_KEY", get_random_secret_key())
@@ -117,6 +117,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+print(STATIC_ROOT)  
 # Additional locations for static files (useful for apps with static assets)
 STATICFILES_DIRS = [
     BASE_DIR / "static",  # Place your development static files here
