@@ -14,9 +14,7 @@ DATABASES = {
     }
 }
 
-# Static files configuration for development
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
 
 # Email backend for development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

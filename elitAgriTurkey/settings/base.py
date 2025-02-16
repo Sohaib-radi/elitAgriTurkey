@@ -1,11 +1,15 @@
 from datetime import timedelta
+import os
 from pathlib import Path
 from os import environ
 from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 DJANGO_SETTINGS_MODULE = config('DJANGO_SETTINGS_MODULE')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = environ.get("SECRET_KEY", get_random_secret_key())
@@ -114,19 +118,23 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-print(STATIC_ROOT)  
-# Additional locations for static files (useful for apps with static assets)
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Place your development static files here
+    os.path.join(BASE_DIR, 'static'),  # for development use
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # for production
 
-# Media files (User uploads)
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
+# Media files settings (uploaded files)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
