@@ -18,9 +18,6 @@ DATABASES = {
     }
 }
 
-# Static files configuration for production
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Security settings for production
 SECURE_SSL_REDIRECT = True
