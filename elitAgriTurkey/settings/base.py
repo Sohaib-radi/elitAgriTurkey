@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 DJANGO_SETTINGS_MODULE = config('DJANGO_SETTINGS_MODULE')
